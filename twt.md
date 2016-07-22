@@ -114,5 +114,47 @@ A subset $S$ of a topological space $(X, \tau)$ is said to be **clopen** if it i
 ### 1.3.1 Definition
 Let $X$ be any non-empty set. A topology $\tau$ on $X$ is called the **finite-closed** topology or the **cofinite** topology if the closed subsets of $X$ are $X$ and all finite subsets of $X$; that is, the open sets are $\varnothing$ and all subsets of $X$ which have finite complements.
 
+### 1.3.3 Example (Proof)
 
+Let $\tau$ be the finite-closed topology on a set $X$. If $X$ has at least 3 distinct clopen subsets, prove that $X$ is a finite set.
+
+**Proof**
+
+Given terms:
+* $X$ is a generic set
+* $\tau$ is a finite-closed topology on $X$
+* $X$ has at least 3 distinct clopen subsets, that is they and their complements belong to $\tau$.
+
+Two clopen subsets are contained in every set by definition of topology, namely $X$ itself and $\varnothing$, so we know that $X$ contains another set $S$ which is open and closed. By definition of finite-closed topology, $\tau$ contains all subsets of $X$ which have finite complements. Since $S$ is both open and closed we may say that $S$ is a finite subset of $X$ (closed) which has finite complement $X \setminus S$ (open). Let us consider the union of the two finite sets $S \cup (X \setminus S) = X$. Being the union of two finite sets, $X$ is finite. \square
+
+### 1.3.4 Definitions
+
+Let $f$ be a function from a set $X$ into a set $Y$.
+
+1. The function $f$ is said to be **one-to-one** or **injective** if $f(x_1) = f(x_2)$ implies $x_1 = x_2$, for $x_1, x_2 \in X$;
+2. The function $f$ is said to be **onto** or **surjective** if for each $y \in Y$ there exists an $x \in X$ such that $f(x) = y$;
+3. The function $f$ is said to be **bijective** if it is both **one-to-one** and **onto**.
+
+### 1.3.5 Definitions
+Let $f$ be a function from a set $X$ into a set $Y$.
+
+The function $f$ is said to have an **inverse** if there exists a function $g$ of $Y$ into $X$ such that $g(f(x)) = x$, for all $x \in X$ and $f(g(y)) = y$, for all $y \in Y$. The function $g$ is called an inverse function of $f$.
+
+### 1.3.6 Proposition
+Let $f$ be a function from a set $X$ into a set $Y$.
+
+1. The function $f$ has an inverse if and only if f is bijective.
+2. Let $g_1$ and $g_2$ be functions from $Y$ into $X$. If $g_1$ and $g_2$ are both inverse functions of $f$, then $g_1 = g_2$; that is, $g_1(y) = g_2(y)$, for all $y \in Y$.
+3. Let $g$ be a function from $Y$ into $X$. Then $g$ is an inverse function of $f$ if and only if $f$ is an inverse function of $g$.
+
+**Proof**
+
+Given terms:
+* $f$ is a generic function from a set $X$ to a set $Y$
+
+To prove 1.3.6.1 let us consider the definition of bijective and inverse. A function $f$ is said to be bijective is it is both one-to-one and onto. A function $f$ from $X$ to $Y$ has an inverse function $g$ from $Y$ to $X$ if $g(f(x)) = x$ for all $x \in X$ and $f(g(y)) = x$ for all $y \in Y$. Suppose $f$ is not one-to-one: we may find two elements $x_1, x_2 \in X$ so that $x_1 \neq x_2$ but $f(x_1) = f(x_2)$. If $f$ has an inverse function $g$ applying $g$ to both terms results in $g(f(x_1)) = g(f(x_2))$, which by definition of inverse leads to $x_1 = x_2$, which is a contradiction. Suppose now that $f$ is not onto: there exists a $y_0 \in Y$ such that $f(x) \neq y_0$ for all $x \in X$. If $f$ has an inverse $g$ then $f(g(y_0)) = y_0$ by definition of inverse. Setting $x_0 = g(y_0)$ we find a value $x_0 \in X$ which contradicts the hypothesis.
+
+To prove 1.3.6.2 we can use 1.3.6.1 that states that $f$ is bijective, since there exist an inverse function. By definition of inverse function we know that $g_1(f(x)) = x$ and $g_2(f(x)) = x$ for all $x \in X$. So we may state that $g_1(f(x)) = g_2(f(x))$ for all $x \in X$. The onto property of $f$ also states that for each $y \in Y$ there exists an $x \in X$ such that $f(x) = y$, so the above equality becomes $g_1(y) = g_2(y)$ for all $y \in Y$.
+
+Suppose $g$ is an inverse function of $f$, but $f$ is not an inverse function of $g$. From the second sentence we know that there exist a $y_0 \in Y$ such that $f(g(y_0)) \neq y_0$. Since $g$ is an inverse of $f$, this last one is bijective from 1.3.6.1, so we know that there exist an $x_0 \in X$ such that $f(x_0) = y_0$. Now applying $g$ to both terms we obtain $g(f(x_0)) = g(y_0)$ and applying $f$ that $f(g(f(x_0))) = f(g(y_0))$. From the hypothesis this can be recuded to $f(x_0) = f(g(y_0))$ and further to $y_0 = f(g(y_0))$ which is a contradiction. \square
 
