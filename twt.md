@@ -158,3 +158,63 @@ To prove 1.3.6.2 we can use 1.3.6.1 that states that $f$ is bijective, since the
 
 Suppose $g$ is an inverse function of $f$, but $f$ is not an inverse function of $g$. From the second sentence we know that there exist a $y_0 \in Y$ such that $f(g(y_0)) \neq y_0$. Since $g$ is an inverse of $f$, this last one is bijective from 1.3.6.1, so we know that there exist an $x_0 \in X$ such that $f(x_0) = y_0$. Now applying $g$ to both terms we obtain $g(f(x_0)) = g(y_0)$ and applying $f$ that $f(g(f(x_0))) = f(g(y_0))$. From the hypothesis this can be recuded to $f(x_0) = f(g(y_0))$ and further to $y_0 = f(g(y_0))$ which is a contradiction. \square
 
+### 1.3.7 Definition
+
+Let $f$ be a function from a set $X$ into a set $Y$ . If $S$ is any subset of $Y$ , then the set $f^−1(S)$ is defined by
+
+$f^−1(S) = {x : x \in X \and f(x) \in S}$
+
+The subset $f^−1(S)$ of $X$ is said to be the inverse image of $S$.
+
+### 1.3.9 Example (Proof)
+
+Let $(Y, \tau)$ be a topological space and $X$ a non-empty set. Further, let $f$ be a function from $X$ into $Y$. Put $\tau_1 = {f^−1(S) : S \in \tau }$. Prove that $\tau_1$ is a topology on $X$.
+
+Given terms:
+
+* $(Y, \tau)$ is a topological space
+* $X$ is a generic non-empty set
+* $f$ is a function from $X$ into $Y$
+* $\tau_1$ is the inverse image of the topology $\tau$ (according to the function $f$)
+* We must prove that $\tau_1$ is a topology on $X$
+
+The definition of topology is in 1.1.1.
+
+Condition 1.1.1.1 states that $X$ and $\varnothing$ belong to $\tau_1$. We know that $f^-1(Y) = X$ by definition of $f$, so $X$ belongs to $\tau_1$. The function $f$ is defined from $X$ to $Y$, that means that the whole set $X$ is mapped to $Y$. It is not stated if the mapping is bijective, but we know that $X$ and $Y$ are fully covered by the function. Furthermore, $f^-1(\varnothing) = \varnothing$ because if the function is not applied to any value, no values are being returned. It is important here to understand that the function $f$, when applied on a topology, works on sets and not elements.
+
+Condition 1.1.1.2 states that the union of any (finite or infinite) number of sets in $\tau_1$ belongs to $\tau_1$. Take ${A_j: j \in J}$ which is a collection of sets contained in $\tau_1$ indexed by a set $J$. The condition requires that $\cup_{j \in J}A_j \in \tau_1. Now, $A_j = f^-1(B_j)$ where $B_j \in \tau$, so we may write that $\cup_{j \in J}A_j = \cup_{j \in J}f^-1B(j) = f^-1(\cup_{j \in J}B_j). Since $B_j \in \tau$ and $\tau$ is a topology we know that $\cup_{j \in J}B_j \in \tau$, and, by definition of $\tau_1$, $f^-1(\cup_{j \in J}B_j) \in \tau_1$.
+
+Condition 1.1.1.3 states that the intersection of any two sets in $\tau_1$ belongs to $\tau_1$. Consider $A_1$ and $A_2$ subsets of $\tau_1$. We may write that $A_1 = f^-1(B_1)$ and $A_2 = f^-1(B_2)$ with $B_1, B_2 \in \tau$. Thus $A_1 \cap A_2 = f^-1(B_1)$ \cap f^-1(B_2) = f^-1(B_1 \cap B_2)$, but since $B_1 \cap B_2 \in \tau$, by definition of $\tau_1$ we know that $f^-1(B_1 \cap B_2) \in \tau_1$. \square
+
+### Exercise 1.3.1.1
+
+Let $f$ be a function from a set $X$ into a set $Y$ . Then we state that
+
+$f^-1(\cup_{j \in J}B_j) = \cup_{j \in J}f^-1(B_j)$
+
+and
+
+$f^-1(B_1 \cap B_2) = f^-1(B_1) \cap f^-1(B_2)$
+
+for any subsets $B_j$ of $Y$ , and any index set $J$. Prove it
+
+**Proof**
+
+Given terms:
+
+* $f$ is a function from $X$ to $Y$
+* $B_j$ is a subset of $Y$
+* $J$ is a generic index set
+
+Being $f$ a generic function let us conrider a generic relation $R$ and prove that
+
+$R[\cup_{i \in I}S_i] = \cup_{i \in I}R[B_i]$
+
+Let us take $t \in $R[\cup_{i \in I}S_i]$. This means that $\exists s \in \cup_{i \in I}S_i : t \in R[s]$, which means that $\exists i \in I : \exists s in S_i : t \in R[s]$. But this means that $\exists i \in I : t \in R[S_i], which is the definition of set union, and then $t \in \cup_{i \in I}R[S_i]$.
+
+Then let us prove that 
+
+$R[S_1 \cap S_2] \subseteq R(S_1) \cap R(S_2)$
+
+Consider that $S_1 \cap S_2 \subseteq S_1$, thus $R[S_1 \cap S_2] \subseteq R[S_1]$. Consider also that $S_1 \cap S_2 \subseteq S_2$, thus $R[S_1 \cap S_2] \subseteq R[S_2]$. This means that $R[S_1 \cap S_2] \subseteq R[S_1] \cap R[S_2]$. \square
+
